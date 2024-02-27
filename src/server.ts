@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 import { AppDataSource } from "./database/db";
-import { createRole, getRoles, updateRole } from "./controllers/roleControllers";
+import { createRole, deleteRole, getRoles, updateRole } from "./controllers/roleControllers";
 
 
 
@@ -23,6 +23,7 @@ app.get("/healthy", (req, res) => {
 app.get('/roles', getRoles)
 app.post('/roles', createRole)
 app.put('/roles', updateRole)
+app.delete('/roles', deleteRole)
 
 AppDataSource.initialize()
     .then(() => {

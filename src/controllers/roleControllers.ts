@@ -26,3 +26,12 @@ export const updateRole = (req: Request, res: Response) => {
         }
     )
 }
+
+export const deleteRole = (req: Request, res: Response) => {
+    res.status(200).json(
+        {
+            success: true,
+            message: "Role deleted"
+        }
+    )
+}
