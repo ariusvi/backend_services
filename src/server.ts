@@ -1,14 +1,16 @@
-import express from "express";
+import express, {Request, Response} from "express";
 import dotenv from "dotenv";
-import { AppDataSource } from "../database/db";
 
 dotenv.config();
+import { AppDataSource } from "./database/db";
+
+
 
 const app = express();
 
 const PORT = process.env.PORT || 4001;
 
-app.get("/healthy", (req, res) => {
+app.get("/healthy", (req: Request, res: Response) => {
     /*para ver si la api está viva*/
     res.status(200).json({
         success: true,
