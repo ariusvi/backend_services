@@ -1,6 +1,6 @@
 import express, {Application, Request, Response} from "express";
-import dotenv from "dotenv";
 import 'dotenv/config'
+import dotenv from "dotenv";
 import { createRole, deleteRole, getRoles, updateRole } from "./controllers/roleControllers";
 import { AppDataSource } from "./database/db";
 
@@ -13,7 +13,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 4001;
 
 app.get("/healthy", (req: Request, res: Response) => {
-    /*para ver si la api está viva*/
+    //to check if the API is active
     res.status(200).json({
         success: true,
         message: "Server is healthy",
@@ -29,11 +29,12 @@ app.delete('/roles', deleteRole)
 AppDataSource.initialize()
     .then(() => {
         console.log("Database connected");
+        app.listen(PORT, () => {
+            console.log(`Server is running on port: ${PORT}`);
+        });
     })
     .catch((error) => {
         console.log(error);
     });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port: ${PORT}`);
-});
+

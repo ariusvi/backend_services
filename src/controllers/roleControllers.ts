@@ -12,7 +12,8 @@ export const getRoles = (req: Request, res: Response) => {
 export const createRole = (req: Request, res: Response) => {
 
     //retrieve information through the body
-    console.log(req.body);
+    const name = req.body.name
+    console.log(name);
 
     res.status(201).json(
         {
