@@ -6,7 +6,7 @@ export class Appointments1709211299836 implements MigrationInterface {
         await queryRunner.createTable(
             new Table (
                 {
-                    name: "appointment", 
+                    name: "appointments", 
                     columns: [ 
                         {
                             name: "id",
@@ -16,9 +16,8 @@ export class Appointments1709211299836 implements MigrationInterface {
                             generationStrategy: "increment"
                         },
                         {
-                            name: "services_id",
-                            type: "int",
-                            isNullable: true,
+                            name: "appointment_date",
+                            type: "timestamp"
                         },
                         {
                             name: "users_id",
