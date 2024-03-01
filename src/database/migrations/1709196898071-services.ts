@@ -18,7 +18,8 @@ export class Services1709196898071 implements MigrationInterface {
                         {
                             name: "serice_name",
                             type: "varchar",
-                            length: "255"
+                            length: "255",
+                            isUnique: true
                         },
                         {
                             name: "description",

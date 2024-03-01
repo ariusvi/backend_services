@@ -28,12 +28,20 @@ export class Users1709219435610 implements MigrationInterface {
                         {
                             name: "email",
                             type: "varchar",
-                            length: "255"
+                            length: "255",
+                            isNullable: false,
+                            isUnique: true
                         },
                         {
                             name: "password_hash",
                             type: "varchar",
-                            length: "255"
+                            length: "255",
+                            isNullable: false,
+                        },
+                        {
+                            name: "is_active",
+                            type: "boolean",
+                            default: "true",
                         },
                         {
                             name: "roles_id",

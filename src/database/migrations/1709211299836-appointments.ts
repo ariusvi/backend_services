@@ -17,7 +17,9 @@ export class Appointments1709211299836 implements MigrationInterface {
                         },
                         {
                             name: "appointment_date",
-                            type: "timestamp"
+                            type: "timestamp",
+                            default: "now()",
+                            onUpdate: "now()",
                         },
                         {
                             name: "users_id",
