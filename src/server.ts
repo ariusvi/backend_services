@@ -23,8 +23,8 @@ app.get("/healthy", (req: Request, res: Response) => {
 /*roles routes*/
 app.get('/roles', getRoles)
 app.post('/roles', createRole)
-app.put('/roles', updateRole)
-app.delete('/roles', deleteRole)
+app.put('/roles/:id', updateRole)
+app.delete('/roles/:id', deleteRole)
 
 AppDataSource.initialize()
     .then(() => {

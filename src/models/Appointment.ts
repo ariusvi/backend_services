@@ -1,15 +1,15 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, Timestamp } from "typeorm"
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
 import { Service } from "./Service"
 import { User } from "./User";
 
 @Entity('appointments')
-export class Appointment {
+export class Appointment extends BaseEntity{
 
     @PrimaryGeneratedColumn()
     id!: number
 
     @Column ({name: 'appointment_date'})
-    name!: Timestamp
+    name!: Date
 
     @ManyToOne (() => Service, (service) => service.appointments)
     @JoinColumn ({name: "services_id"})
