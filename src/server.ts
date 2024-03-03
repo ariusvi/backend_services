@@ -3,6 +3,7 @@ import 'dotenv/config'
 import dotenv from "dotenv";
 import { createRole, deleteRole, getRoles, updateRole } from "./controllers/roleControllers";
 import { AppDataSource } from "./database/db";
+import { register } from "./controllers/authController";
 
 dotenv.config();
 
@@ -25,6 +26,9 @@ app.get('/roles', getRoles)
 app.post('/roles', createRole)
 app.put('/roles/:id', updateRole)
 app.delete('/roles/:id', deleteRole)
+
+// auth routes
+app.post('/api/auth/register', register)
 
 AppDataSource.initialize()
     .then(() => {

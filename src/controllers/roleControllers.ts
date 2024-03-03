@@ -12,23 +12,34 @@ export const getRoles = (req: Request, res: Response) => {
 
 export const createRole = async (req: Request, res: Response) => {
 
-    //retrieve information through the body
-    const name = req.body.name
-    console.log(name);
+    try {
+        //retrieve information through the body
+        const name = req.body.name
+        console.log(name);
 
-    const newRole = await Role.create(
-        {
-            name: name
-        }
-    ).save()
+        const newRole = await Role.create(
+            {
+                name: name
+            }
+        ).save()
 
-    res.status(201).json(
-        {
-            success: true,
-            message: "Role created",
-            data: newRole
-        }
-    )
+        res.status(201).json(
+            {
+                success: true,
+                message: "Role created",
+                data: newRole
+            }
+        )
+    } catch (error) {
+        res.status(500).json(
+            {
+                susscess: false,
+                message: "role can't be created",
+                error: error
+            }
+        )
+    }
+
 }
 
 export const updateRole = (req: Request, res: Response) => {
