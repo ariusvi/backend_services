@@ -5,6 +5,7 @@ import { createRole, deleteRole, getRoles, updateRole } from "./controllers/role
 import { AppDataSource } from "./database/db";
 import { register } from "./controllers/authController";
 import { getUsers } from "./controllers/userController";
+import { getServices } from "./controllers/serviceController";
 
 dotenv.config();
 
@@ -31,8 +32,11 @@ app.delete('/roles/:id', deleteRole)
 // auth routes
 app.post('/api/auth/register', register)
 
-// sers routes
+// users routes
 app.get('/api/users', getUsers)
+
+// services routes
+app.get('/api/services', getServices )
 
 AppDataSource.initialize()
     .then(() => {
