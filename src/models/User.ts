@@ -2,14 +2,14 @@ import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGe
 import { Role } from "./Role"
 import { Appointment } from "./Appointment"
 
-@Entity()
+@Entity('users')
 export class User extends BaseEntity{
 
     @PrimaryGeneratedColumn()
     id!: number
 
-    @Column ({name: 'name'})
-    name!: string
+    @Column ({name: 'first_name'})
+    firstName!: string
 
     @Column ({name: 'last_name'})
     lastName!: string
@@ -24,7 +24,7 @@ export class User extends BaseEntity{
     isActive!: boolean
 
     @ManyToOne (() => Role, (role) => role.users)
-    @JoinColumn ({ name: "roles _id"})
+    @JoinColumn ({ name: "roles_id"})
     role!: Role;
 
     @OneToMany (() => Appointment, (appointment) => appointment.user)
