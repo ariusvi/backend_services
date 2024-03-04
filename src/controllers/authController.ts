@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import { User } from "../models/User";
 
+//register
 export const register = async (req: Request, res: Response) => {
     try {
         console.log(req.body);
@@ -62,6 +63,27 @@ export const register = async (req: Request, res: Response) => {
             {
                 susscess: false,
                 message: "user can't be regstered"  ,
+                error: error
+            }
+        )
+    }
+}
+
+//login
+export const login = async (req: Request, res: Response) => {
+    try {
+        res.status(200).json(
+            {
+                success: true,
+                message: "user logged successfully",
+                
+            }
+        )
+    } catch (error) {
+        res.status(500).json(
+            {
+                susscess: false,
+                message: "user can't be logged"  ,
                 error: error
             }
         )

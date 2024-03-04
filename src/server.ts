@@ -3,7 +3,7 @@ import 'dotenv/config'
 import dotenv from "dotenv";
 import { createRole, deleteRole, getRoles, updateRole } from "./controllers/roleControllers";
 import { AppDataSource } from "./database/db";
-import { register } from "./controllers/authController";
+import { login, register } from "./controllers/authController";
 import { getUsers } from "./controllers/userController";
 import { getServices } from "./controllers/serviceController";
 
@@ -26,11 +26,12 @@ app.get("/healthy", (req: Request, res: Response) => {
 //roles routes
 app.get('/roles', getRoles)
 app.post('/roles', createRole)
-app.put('/roles/:id', updateRole)
-app.delete('/roles/:id', deleteRole)
+app.put('/roles', updateRole)
+app.delete('/roles', deleteRole)
 
 // auth routes
 app.post('/api/auth/register', register)
+app.post('/api/auth/login', login)
 
 // users routes
 app.get('/api/users', getUsers)
