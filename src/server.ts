@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { createRole, deleteRole, getRoles, updateRole } from "./controllers/roleControllers";
 import { AppDataSource } from "./database/db";
 import { register } from "./controllers/authController";
+import { getUsers } from "./controllers/userController";
 
 dotenv.config();
 
@@ -21,7 +22,7 @@ app.get("/healthy", (req: Request, res: Response) => {
     });
 });
 
-/*roles routes*/
+//roles routes
 app.get('/roles', getRoles)
 app.post('/roles', createRole)
 app.put('/roles/:id', updateRole)
@@ -29,6 +30,9 @@ app.delete('/roles/:id', deleteRole)
 
 // auth routes
 app.post('/api/auth/register', register)
+
+// sers routes
+app.get('/api/users', getUsers)
 
 AppDataSource.initialize()
     .then(() => {
