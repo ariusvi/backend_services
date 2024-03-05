@@ -1,0 +1,255 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "old_ink",
+    "dateExported": "2024-03-05T21:43:38.711Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "8ec6ccd8-e804-4fac-be50-a95359c60b09",
+            "name": "users",
+            "containerId": "",
+            "created": "2024-03-05T18:16:23.631Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "e698e6b8-3c87-45e9-9576-bc00f22d0757",
+            "name": "auth",
+            "containerId": "",
+            "created": "2024-03-05T18:17:25.577Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "c01e5590-0d46-4071-b635-33a8175dccce",
+            "name": "services",
+            "containerId": "",
+            "created": "2024-03-05T18:17:50.568Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "eca33466-54ba-4e4a-805a-cd83d46dfb36",
+            "name": "appointments",
+            "containerId": "",
+            "created": "2024-03-05T18:18:36.537Z",
+            "sortNum": 40000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "dc00e94c-f001-4c9b-9197-1357a1e61157",
+            "colId": "9ab56d91-47cd-4897-9de8-ad7cb6cbd63f",
+            "containerId": "c01e5590-0d46-4071-b635-33a8175dccce",
+            "name": "get_services",
+            "url": "localhost:4001/api/services",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-03-04T17:05:37.066Z",
+            "modified": "2024-03-04T17:07:50.132Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "fd76361e-c0e0-4489-8027-4656759f3453",
+            "colId": "9ab56d91-47cd-4897-9de8-ad7cb6cbd63f",
+            "containerId": "8ec6ccd8-e804-4fac-be50-a95359c60b09",
+            "name": "getUserProfile",
+            "url": "localhost:4001/api/users/profile",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-03-05T15:38:35.965Z",
+            "modified": "2024-03-05T16:55:35.775Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInJvbGVOYW1lIjoic3VwZXJfYWRtaW4iLCJpYXQiOjE3MDk2NTc3MTQsImV4cCI6MTcwOTY3NTcxNH0.L_zyszUh5Yb5f1QQTUmC144LI9P0UW0pdc5O6iweuVs"
+            },
+            "tests": []
+        },
+        {
+            "_id": "2f391392-e2af-44da-a8c6-b633dce7f942",
+            "colId": "9ab56d91-47cd-4897-9de8-ad7cb6cbd63f",
+            "containerId": "",
+            "name": "create_role",
+            "url": "localhost:4001/roles",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-03-01T17:59:03.126Z",
+            "modified": "2024-03-03T19:48:49.070Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"super_admin\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e1fd4d05-ddf5-44de-bc5b-92e2c9c47f92",
+            "colId": "9ab56d91-47cd-4897-9de8-ad7cb6cbd63f",
+            "containerId": "8ec6ccd8-e804-4fac-be50-a95359c60b09",
+            "name": "get_users",
+            "url": "localhost:4001/api/users",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-04T17:00:01.438Z",
+            "modified": "2024-03-05T15:15:10.339Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInJvbGVOYW1lIjoic3VwZXJfYWRtaW4iLCJpYXQiOjE3MDk2NTE3MDAsImV4cCI6MTcwOTY2OTcwMH0._BugFF0Z-U38y97kW5QDuVdD6waAmtITyqYFT95717I"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f1f6fed4-dd99-4676-99d9-83ee01e999b1",
+            "colId": "9ab56d91-47cd-4897-9de8-ad7cb6cbd63f",
+            "containerId": "8ec6ccd8-e804-4fac-be50-a95359c60b09",
+            "name": "updateUsersProfile",
+            "url": "localhost:4001/api/users/profile",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-03-05T17:31:37.391Z",
+            "modified": "2024-03-05T17:33:30.089Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"firstName\": \"manolo\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInJvbGVOYW1lIjoidXNlciIsImlhdCI6MTcwOTY1OTg2NywiZXhwIjoxNzA5Njc3ODY3fQ.h0uRi3beWrsY9jJ2sJeQkm0VJljqEaYZGnPJDFXDJEk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "42fe53c9-ec79-488c-9910-36b0c3632f59",
+            "colId": "9ab56d91-47cd-4897-9de8-ad7cb6cbd63f",
+            "containerId": "8ec6ccd8-e804-4fac-be50-a95359c60b09",
+            "name": "register",
+            "url": "localhost:4001/api/auth/register",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-03-03T16:51:15.076Z",
+            "modified": "2024-03-05T17:30:27.241Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"first_name\": \"manolo\",\n  \"last_name\": \"garcia\",\n  \"email\": \"manolo@email.com\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "11c4ca2c-64ea-4d74-a69a-d4a0cfd875cf",
+            "colId": "9ab56d91-47cd-4897-9de8-ad7cb6cbd63f",
+            "containerId": "8ec6ccd8-e804-4fac-be50-a95359c60b09",
+            "name": "login",
+            "url": "localhost:4001/api/auth/login",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-03-04T17:46:48.514Z",
+            "modified": "2024-03-05T21:13:22.934Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"superadmin@email.com\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "0ecc02a9-2309-449c-b5f2-ffd6c958533c",
+            "colId": "9ab56d91-47cd-4897-9de8-ad7cb6cbd63f",
+            "containerId": "eca33466-54ba-4e4a-805a-cd83d46dfb36",
+            "name": "createAppointment",
+            "url": "localhost:4001/api/appointments",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2024-03-05T18:18:52.999Z",
+            "modified": "2024-03-05T18:32:57.183Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"user.id\": \"4\",\n  \"service.id\": \"1\",\n  \"dateAppointment\": \"2024-03-05 13:30:00\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "84ad8c48-586d-4873-a2a0-7754f8050241",
+            "colId": "9ab56d91-47cd-4897-9de8-ad7cb6cbd63f",
+            "containerId": "eca33466-54ba-4e4a-805a-cd83d46dfb36",
+            "name": "updateAppointment",
+            "url": "localhost:4001/api/appointments",
+            "method": "PUT",
+            "sortNum": 110000,
+            "created": "2024-03-05T18:43:56.726Z",
+            "modified": "2024-03-05T18:46:17.149Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"serviceId\": \"1\",\n  \"userId\": \"4\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInJvbGVOYW1lIjoidXNlciIsImlhdCI6MTcwOTY1OTg2NywiZXhwIjoxNzA5Njc3ODY3fQ.h0uRi3beWrsY9jJ2sJeQkm0VJljqEaYZGnPJDFXDJEk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8038d7b4-c676-44f5-8c34-b41e759293ae",
+            "colId": "9ab56d91-47cd-4897-9de8-ad7cb6cbd63f",
+            "containerId": "eca33466-54ba-4e4a-805a-cd83d46dfb36",
+            "name": "getAppointmentsById",
+            "url": "localhost:4001/api/appointments/",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2024-03-05T21:21:59.341Z",
+            "modified": "2024-03-05T21:37:33.650Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\":\"2\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "cafedcfc-db02-481a-9f4c-0490184e59d7",
+            "colId": "9ab56d91-47cd-4897-9de8-ad7cb6cbd63f",
+            "containerId": "eca33466-54ba-4e4a-805a-cd83d46dfb36",
+            "name": "getAppointments",
+            "url": "localhost:4001/api/appointments",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2024-03-05T21:35:29.596Z",
+            "modified": "2024-03-05T21:38:04.614Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": \"3\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInJvbGVOYW1lIjoic3VwZXJfYWRtaW4iLCJpYXQiOjE3MDk2NzMyMDIsImV4cCI6MTcwOTY5MTIwMn0.b6VebKklgxHU3cCqv5jFswdh8OM1RNYT5RGg1YvLz0M"
+            },
+            "tests": []
+        }
+    ]
+}

@@ -82,9 +82,9 @@ export const updateAppointment = (req: Request, res: Response) => {
     }
 }
 
-// recover appointment
+// retrieve appointment
 export const getAppointmentsById = async (req: Request, res: Response) => {
-
+    try {
     const appointmentId = req.body.id;
 
     const appointment = await Appointment.findOne( 
@@ -106,10 +106,56 @@ export const getAppointmentsById = async (req: Request, res: Response) => {
     res.status(200).json(
         {
             success: true,
-            message: "appointment recovered succesfully",
+            message: "appointment retrieved succesfully",
             data: appointment
 
         }
     )
 
+} catch (error) {
+    res.status(500).json(
+        {
+            susscess: false,
+            message: "appointment can't be retrieved" ,
+            error: error
+        }
+    )
+}
+}
+
+
+// retrieve user's appointment
+export const getAppointments = async (req: Request, res: Response) => {
+    try {
+    const userId = req.tokenData.userId 
+
+    const appointment = await Appointment.find( 
+        {
+            where:
+            {
+                user: 
+                {
+                    id: userId
+                }
+            }
+        }
+    );
+
+    res.status(200).json(
+        {
+            success: true,
+            message: "user's appointments: ",
+            data: appointment 
+        }
+    )
+
+}catch (error) {
+    res.status(500).json(
+        {
+            susscess: false,
+            message: "user's appointment can't be retrieved" ,
+            error: error
+        }
+    )
+}
 };
