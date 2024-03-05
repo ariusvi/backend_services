@@ -7,6 +7,7 @@ import { login, register } from "./controllers/authController";
 import { getUsers } from "./controllers/userController";
 import { getServices } from "./controllers/serviceController";
 import { auth } from "./middlewares/auth";
+import { isSuperAdmin } from "./middlewares/isAdmin";
 
 dotenv.config();
 
@@ -35,7 +36,7 @@ app.post('/api/auth/register', register)
 app.post('/api/auth/login', login)
 
 // users routes
-app.get('/api/users', auth, getUsers)
+app.get('/api/users', auth, isSuperAdmin, getUsers)
 
 // services routes
 app.get('/api/services', getServices )
