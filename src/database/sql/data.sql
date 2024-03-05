@@ -2,7 +2,7 @@ USE old_ink;
 
 -- create roles in system
 
-insert into roles (id, name) values (1, 'uer');
+insert into roles (id, name) values (1, 'user');
 insert into roles (id, name) values (2, 'admin');
 insert into roles (id, name) values (3, 'super_admin');
 
@@ -28,8 +28,8 @@ insert into users (id, first_name, last_name, email, password_hash, roles_id) va
 
 
 -- create appointments
-insert into appointments (id, appointment_date, users_id, services_id) values (1, '7/13/2024', 1, 1);
-insert into appointments (id, appointment_date, users_id, services_id) values (2, '12/13/2024', 2, 2);
-insert into appointments (id, appointment_date, users_id, services_id) values (3, '5/22/2024', 3, 3);
-insert into appointments (id, appointment_date, users_id, services_id) values (4, '3/19/2024', 4, 4);
-insert into appointments (id, appointment_date, users_id, services_id) values (5, '3/14/2024', 5, 5);
+insert into appointments (id, appointment_date, users_id, services_id) values (1, '2024-03-05 13:30:00', 1, 1);
+insert into appointments (id, appointment_date, users_id, services_id) values (2, '2024-03-07 13:30:00', 2, 2);
+insert into appointments (id, appointment_date, users_id, services_id) values (3, '2024-03-09 13:30:00', 3, 3);
+insert into appointments (id, appointment_date, users_id, services_id) values (4, '2024-03-11 13:30:00', 4, 4);
+insert into appointments (id, appointment_date, users_id, services_id) values (5, '2024-03-12 13:30:00', 5, 5);

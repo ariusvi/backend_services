@@ -81,3 +81,35 @@ export const updateAppointment = (req: Request, res: Response) => {
         })
     }
 }
+
+// recover appointment
+export const getAppointmentsById = async (req: Request, res: Response) => {
+
+    const appointmentId = req.body.id;
+
+    const appointment = await Appointment.findOne( 
+        {
+            where:
+            {
+                id: parseInt(appointmentId)
+            }
+        }
+    )
+    if (!appointmentId) {
+        return res.status(400).json({
+            success: false,
+            message: "this appointment doesn't exist"
+        })
+    }
+
+
+    res.status(200).json(
+        {
+            success: true,
+            message: "appointment recovered succesfully",
+            data: appointment
+
+        }
+    )
+
+};
