@@ -73,7 +73,7 @@ Appointment routes include:
     * [GitHub](https://github.com/ariusvi)
 
 ## Acknowledgements 🙏
-Special thanks to Daniel Tarazona for his incredible work as a teacher and above all for his infinite patience in helping to resolve any doubts and calm the panic.
-Thanks to my classmates:
-Pedro for his patience and help, especially to confirm that I understand things.
+Special thanks to Daniel Tarazona for his incredible work as a teacher and above all for his infinite patience in helping to resolve any doubts and calm the panic.<br>
+Thanks to my classmates:<br>
+Pedro for his patience and help, especially to confirm that I understand things.<br>
 Marina for her moral support, joint laughter and tears, as well as her help.
