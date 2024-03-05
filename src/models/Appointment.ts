@@ -9,7 +9,7 @@ export class Appointment extends BaseEntity{
     id!: number
 
     @Column ({name: 'appointment_date'})
-    name!: Date
+    dateAppointment!: Date
 
     @ManyToOne (() => Service, (service) => service.appointments)
     @JoinColumn ({name: "services_id"})
