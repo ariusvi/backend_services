@@ -22,20 +22,20 @@ Welcome to the Old Ink's api documentation. This api recreates a fictional datab
 ![database_image](./img/database.JPG)
 
 ## Local installation 💻
-1. Clone the repository
- ` $ git clone https://github.com/ariusvi/backend_services `
-2. Install dependencies
- ``` $ npm install --y ``` 
- ``` $ npm i typeorm --save ```
- ``` $ npm i reflect-metadata --save ```
- ``` $ npm i @types/node --save -dev ``` (if it isn't installed)
- ``` $ npm i mysql2 --save ```
- ``` $ npm i express ```
- ``` $ npm i typescript -D ```
-3. Start Express on the server
- ``` $ npm run dev ``` 
-4. Run migrations
- ``` $ npm run run-migrations ``` 
+1. Clone the repository<br>
+ ` $ git clone https://github.com/ariusvi/backend_services `<br>
+2. Install dependencies<br>
+ ``` $ npm install --y ``` <br>
+ ``` $ npm i typeorm --save ```<br>
+ ``` $ npm i reflect-metadata --save ```<br>
+ ``` $ npm i @types/node --save -dev ``` (if it isn't installed)<br>
+ ``` $ npm i mysql2 --save ```<br>
+ ``` $ npm i express ```<br>
+ ``` $ npm i typescript -D ```<br>
+3. Start Express on the server<br>
+ ``` $ npm run dev ```<br> 
+4. Run migrations<br>
+ ``` $ npm run run-migrations ``` <br>
 
 ## Routes 👾
 The routes worked for the project are:
