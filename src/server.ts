@@ -6,6 +6,7 @@ import { AppDataSource } from "./database/db";
 import { login, register } from "./controllers/authController";
 import { getUsers } from "./controllers/userController";
 import { getServices } from "./controllers/serviceController";
+import { auth } from "./middlewares/auth";
 
 dotenv.config();
 
@@ -34,7 +35,7 @@ app.post('/api/auth/register', register)
 app.post('/api/auth/login', login)
 
 // users routes
-app.get('/api/users', getUsers)
+app.get('/api/users', auth, getUsers)
 
 // services routes
 app.get('/api/services', getServices )
