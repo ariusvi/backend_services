@@ -105,6 +105,7 @@ export const login = async (req: Request, res: Response) => {
                     passwordHash: true,
                     email: true,
                     role: {
+                        id: true,
                         name: true
                     }
 

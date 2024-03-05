@@ -7,7 +7,7 @@ import { login, register } from "./controllers/authController";
 import { getUsers } from "./controllers/userController";
 import { getServices } from "./controllers/serviceController";
 import { auth } from "./middlewares/auth";
-import { isSuperAdmin } from "./middlewares/isAdmin";
+import { isSuperAdmin } from "./middlewares/isSuperAdmin";
 
 dotenv.config();
 

@@ -4,7 +4,7 @@ export type TokenData = {
 };
 
 declare global {
-    // Express
+    // express
     namespace Express {
         export interface Request {
             tokenData: TokenData;
