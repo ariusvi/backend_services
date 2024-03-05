@@ -8,7 +8,7 @@ import { getUsers, getUsersProfile, updateUsersProfile } from "./controllers/use
 import { getServices } from "./controllers/serviceController";
 import { auth } from "./middlewares/auth";
 import { isSuperAdmin } from "./middlewares/isSuperAdmin";
-import { createAppointment } from "./controllers/appointmentController";
+import { createAppointment, updateAppointment } from "./controllers/appointmentController";
 
 dotenv.config();
 
@@ -43,6 +43,7 @@ app.put('/api/users/profile', auth, updateUsersProfile)
 
 // appointments routes
 app.post('/api/appointments', createAppointment)
+app.put('/api/appointments', auth, updateAppointment)
 
 // services routes
 app.get('/api/services', getServices )
