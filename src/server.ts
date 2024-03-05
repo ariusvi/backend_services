@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import { createRole, deleteRole, getRoles, updateRole } from "./controllers/roleControllers";
 import { AppDataSource } from "./database/db";
 import { login, register } from "./controllers/authController";
-import { getUsers, getUsersProfile } from "./controllers/userController";
+import { getUsers, getUsersProfile, updateUsersProfile } from "./controllers/userController";
 import { getServices } from "./controllers/serviceController";
 import { auth } from "./middlewares/auth";
 import { isSuperAdmin } from "./middlewares/isSuperAdmin";
@@ -38,6 +38,7 @@ app.post('/api/auth/login', login)
 // users routes
 app.get('/api/users', auth, isSuperAdmin, getUsers)
 app.get('/api/users/profile', auth, getUsersProfile)
+app.put('/api/users/profile', auth, updateUsersProfile)
 
 // services routes
 app.get('/api/services', getServices )

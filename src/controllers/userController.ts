@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express"
+import { Request, Response } from "express"
 import { User } from "../models/User"
 
 
@@ -22,7 +22,7 @@ export const getUsers = async (req: Request, res: Response) => {
         res.status(200).json(
             {
                 susscess: true,
-                message: "users retrieved successfully" ,
+                message: "users retrieved successfully",
                 data: users,
             }
         )
@@ -30,7 +30,7 @@ export const getUsers = async (req: Request, res: Response) => {
         res.status(500).json(
             {
                 susscess: false,
-                message: "users can't be retrieved" ,
+                message: "users can't be retrieved",
                 error: error
             }
         )
@@ -38,17 +38,17 @@ export const getUsers = async (req: Request, res: Response) => {
 }
 
 //retrieve user's profile
-export const getUsersProfile = async (req:Request, res:Response, next: NextFunction) => {
+export const getUsersProfile = async (req: Request, res: Response) => {
     try {
         const userId = req.tokenData.userId
         const user = await User.findOne(
-            { 
+            {
                 where: {
                     id: userId
-                } 
+                }
             }
-            )
-            console.log(userId);
+        )
+        console.log(userId);
 
         if (!user) {
             return res.status(401).json(
@@ -59,7 +59,7 @@ export const getUsersProfile = async (req:Request, res:Response, next: NextFunct
             )
         }
 
-        
+
 
         return res.status(201).json(
             {
@@ -68,15 +68,59 @@ export const getUsersProfile = async (req:Request, res:Response, next: NextFunct
                 data: user
             }
         )
-        next();
 
-    } catch (error:any) {
-            res.status(500).json(
+
+    } catch (error: any) {
+        res.status(500).json(
+            {
+                susscess: false,
+                message: "your profile can't be retrieved",
+                error: error.message
+            }
+        )
+    }
+}
+
+//update user's profiel
+export const updateUsersProfile = (req: Request, res: Response) => {
+    try {
+        // retrieve data
+        const firstName = req.body.firstName
+        const userId = req.tokenData.userId
+
+        // validar la data
+        if (!firstName) {
+            return res.status(400).json(
                 {
-                    susscess: false,
-                    message: "your profile can't be retrieved" ,
-                    error: error.message
+                    success: false,
+                    message: "name is needed"
                 }
             )
         }
+
+        // update data in database
+        const userUpadated = User.update(
+            {
+                id: userId
+            },
+            {
+                firstName: firstName
+            }
+        )
+
+        // response
+        res.status(200).json(
+            {
+                success: true,
+                message: "user updated",
+                data: userUpadated
+            }
+        )
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "user profile cant be updated",
+            error: error
+        })
+    }
 }
