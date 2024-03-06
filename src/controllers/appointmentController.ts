@@ -1,22 +1,38 @@
 import { Request, Response } from "express";
 import { Appointment } from "../models/Appointment";
+import { User } from "../models/User";
 
 // create new appointment
 export const createAppointment = async (req: Request, res: Response) => {
     try {
         //retrieve information through the body
         const dateAppointment = req.body.dateAppointment;
-        const serviceId = req.body.service;
-        const userId = req.body.user;
+        const serviceId = req.body.serviceId;
+        const userId = req.tokenData.userId;
+        const user = await User.findOne(
+            {
+                where: {
+                    id: userId
+                }
+            }
+        )
+        console.log(userId);
+
+        if(!user) {
+            return res.status(400).json(
+            {
+                success: false,
+                message: "you need log to create an appointment",
+            })
+        }
 
         const newAppointment = await Appointment.create(
             {
-                user: userId,
+                user: user,
                 service: serviceId,
                 dateAppointment: dateAppointment,
-                
-            }
-        ).save()
+            
+        }).save()
 
         res.status(201).json(
             {
@@ -39,20 +55,27 @@ export const createAppointment = async (req: Request, res: Response) => {
 
 //  update appointment
 
-export const updateAppointment = (req: Request, res: Response) => {
+export const updateAppointment = async (req: Request, res: Response) => {
     try {
-        // retrieve data
-        const serviceId = req.body.service;
-        const userId = req.tokenData.userId
-
-        // validar la data
-        if (!userId) {
-            return res.status(400).json(
-                {
-                    success: false,
-                    message: "user's id is needed"
+        //retrieve information through the body
+        const dateAppointment = req.body.dateAppointment;
+        const serviceId = req.body.serviceId;
+        const userId = req.tokenData.userId;
+        const user = await User.findOne(
+            {
+                where: {
+                    id: userId
                 }
-            )
+            }
+        )
+        console.log(userId);
+
+        if(!user) {
+            return res.status(400).json(
+            {
+                success: false,
+                message: "need log to update appointment",
+            })
         }
 
         // update data in database
@@ -82,7 +105,7 @@ export const updateAppointment = (req: Request, res: Response) => {
     }
 }
 
-// retrieve appointment
+// retrieve appointment by id
 export const getAppointmentsById = async (req: Request, res: Response) => {
     try {
     const appointmentId = req.body.id;
@@ -115,7 +138,7 @@ export const getAppointmentsById = async (req: Request, res: Response) => {
 } catch (error) {
     res.status(500).json(
         {
-            susscess: false,
+            success: false,
             message: "appointment can't be retrieved" ,
             error: error
         }

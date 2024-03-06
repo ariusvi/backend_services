@@ -43,7 +43,7 @@ app.put('/api/users/profile', auth, updateUsersProfile)
 
 
 // appointments routes
-app.post('/api/appointments', createAppointment)
+app.post('/api/appointments', auth, createAppointment) //todo corregir esto
 app.put('/api/appointments', auth, updateAppointment)
 app.get('/api/appointments', getAppointmentsById)
 app.get('/api/appointments', getAppointments)
