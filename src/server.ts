@@ -43,10 +43,10 @@ app.put('/api/users/profile', auth, updateUsersProfile)
 
 
 // appointments routes
-app.post('/api/appointments', auth, createAppointment) //todo corregir esto
+app.post('/api/appointments', auth, createAppointment) 
 app.put('/api/appointments', auth, updateAppointment)
-app.get('/api/appointments', getAppointmentsById)
-app.get('/api/appointments', getAppointments)
+app.get('/api/appointments', auth, getAppointments)
+app.get('/api/appointments/:id', getAppointmentsById)
 
 // services routes
 app.get('/api/services', getServices )
