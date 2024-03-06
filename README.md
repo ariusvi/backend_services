@@ -1,4 +1,5 @@
 # Old Ink api 🎨
+![tattoo_img](./img/tattoo.jpg)
 Welcome to the Old Ink's api documentation. This api recreates a fictional database where clients can register, log and create appointments with the different services that the tattoo studio provides.
 
 ## Table of Contents 📂
@@ -22,36 +23,84 @@ Welcome to the Old Ink's api documentation. This api recreates a fictional datab
 ![database_image](./img/database.JPG)
 
 ## Local installation 💻
-1. Clone the repository<br>
- ` $ git clone https://github.com/ariusvi/backend_services `<br>
-2. Install dependencies<br>
- ``` $ npm install --y ``` <br>
- ``` $ npm i typeorm --save ```<br>
- ``` $ npm i reflect-metadata --save ```<br>
- ``` $ npm i @types/node --save -dev ``` (if it isn't installed)<br>
- ``` $ npm i mysql2 --save ```<br>
- ``` $ npm i express ```<br>
- ``` $ npm i typescript -D ```<br>
-3. Start Express on the server<br>
- ``` $ npm run dev ```<br> 
-4. Run migrations<br>
- ``` $ npm run run-migrations ``` <br>
+1. Clone the repository
+ ` $ git clone https://github.com/ariusvi/backend_services `
+2. Install dependencies
+ ``` $ npm install --y ``` 
+3. Start Express on the server
+ ``` $ npm run dev ```
+4. Run migrations
+ ``` $ npm run run-migrations ``` 
+
+5. The <b>HTTP folder</b> includes all routes that can be imported into Thunder Client
 
 ## Routes 👾
 The routes worked for the project are:
 
 <B>AUTHENTICATION (AUTH)</B>
 
-- First we register a user.
-- Log user
-
+- Register a user.
+```POST /api/auth/register``` 
+body: <br>
+```json
+{
+  "first_name": "name",
+  "last_name": "surname",
+  "email": "email@email.com",
+  "password": "123456"
+} 
+```
+- Login user:<br>
+```POST /api/auth/login```
+body: <br>
+```json
+{
+    "email": "user@email.com",
+    "password": "123456"
+} 
+```
 
 <B>USERS</B>
 User routes include:
 
-- Get all system users being Super_admin
+- Get all system users being Super_admin <br>
+Login as superadmin: 
+```POST /api/auth/login```
+
+body: 
+
+```json
+{
+    "email": "superadmin@email.com",
+    "password": "123456"
+} 
+```
+auth:
+
+```token```
+
+get all users:
+```GET /api/users```
+
+auth:
+
+```token```
+
 - View user profile
+
+```GET /api/users/profile```
+
+auth:
+
+```token```
+
 - Edit username
+
+```PUT /api/users/profile```
+
+auth:
+
+```token```
 
 
 <B>SERVICES</B>
@@ -59,14 +108,77 @@ Service routes include:
 
 - See all services
 
+```GET /api/services```
+
 
 <B>APPOINTMENTS</B>
 Appointment routes include:
 
 - Create a new appointment
+
+```POST /api/appointments```
+
+body: 
+
+```json
+{
+    "serviceId": "4",
+    "dateAppointment": "2024-03-04 13:30:00"
+} 
+```
+auth:
+
+```token```
+
 - See your appointments
+
+```GET /api/appointments```
+
+body: 
+
+```json
+{
+    "id":"4"
+} 
+```
+
+auth:
+
+```token```
+
 - See the appointment by id
-- Edit an appointment by changing the service
+
+```GET /api/appointments/:id```
+
+body: 
+
+```json
+{
+    "id":"12"
+} 
+```
+
+auth:
+
+```token```
+
+- Update an appointment
+
+```PUT /api/appointments```
+
+body: 
+
+```json
+{
+    "serviceId": "1",
+    "userId": "4"
+} 
+```
+
+auth:
+
+```token```
+
 
 ## Author ✒️
 * Ana Rius - student FSD
