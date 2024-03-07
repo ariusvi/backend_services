@@ -56,3 +56,4 @@ export class Appointments1709211299836 implements MigrationInterface {
     }
 
 }
+

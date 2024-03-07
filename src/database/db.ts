@@ -2,10 +2,10 @@ import "reflect-metadata"
 import 'dotenv/config';
 
 import { DataSource } from "typeorm"
-import { Roles1709145409685 } from "./migrations/10-roles"
-import { Services1709196898071 } from "./migrations/20-services";
-import { Users1709219435610 } from "./migrations/30-users";
-import { Appointments1709211299836 } from "./migrations/40-appointments";
+import { Roles1709145409685 } from "./migrations/1709145409685-roles"
+import { Services1709196898071 } from "./migrations/1709196898071-services";
+import { Users1709219435610 } from "./migrations/1709211299836-users";
+import { Appointments1709211299836 } from "./migrations/1709219435610-appointments";
 import { Role } from "../models/Role";
 import { User } from "../models/User";
 import { Service } from "../models/Service";
