@@ -9,12 +9,15 @@ import { getServices } from "./controllers/serviceController";
 import { auth } from "./middlewares/auth";
 import { isSuperAdmin } from "./middlewares/isSuperAdmin";
 import { createAppointment, getAppointments, getAppointmentsById, updateAppointment } from "./controllers/appointmentController";
+import  cors  from "cors";
+
 
 dotenv.config();
 
 const app: Application = express();
 
 app.use(express.json());
+app.use(cors());
 
 const PORT = process.env.PORT || 4001;
 
