@@ -82,31 +82,61 @@ export const getUsersProfile = async (req: Request, res: Response) => {
 }
 
 //update user's profiel
-export const updateUsersProfile = (req: Request, res: Response) => {
+export const updateUsersProfile = async (req: Request, res: Response) => {
     try {
         // retrieve data
-        const firstName = req.body.firstName
+        const firstName = req.body.first_name
+        const lastName = req.body.last_name
+        const email = req.body.email
         const userId = req.tokenData.userId
 
         // validar la data
-        if (!firstName) {
+        // if (!firstName) {
+        //     return res.status(400).json(
+        //         {
+        //             success: false,
+        //             message: "name is needed"
+        //         }
+        //     )
+        // }
+
+        if (firstName && typeof firstName !== 'string') {
             return res.status(400).json(
                 {
                     success: false,
-                    message: "name is needed"
+                    message: "Name must be a text"
                 }
             )
         }
+        
 
         // update data in database
-        const userUpadated = User.update(
-            {
+        // const userUpadated = User.update(
+        //     {
+        //         id: userId
+        //     },
+        //     {
+        //         firstName: firstName
+        //     }
+        // )
+
+        const user = await User.findOne({
+            where: {
                 id: userId
-            },
-            {
-                firstName: firstName
             }
-        )
+        }) 
+        if (!user) {
+            return res.status(401).json(
+                {
+                    success: false,
+                    message: "User doesn't exist"
+                }
+            )
+        }
+        user.firstName = firstName
+        user.lastName = lastName
+        user.email = email
+        const userUpadated = await user.save()
 
         // response
         res.status(200).json(
