@@ -21,7 +21,7 @@ export const getUsers = async (req: Request, res: Response) => {
 
         res.status(200).json(
             {
-                susscess: true,
+                success: true,
                 message: "users retrieved successfully",
                 data: users,
             }
@@ -29,7 +29,7 @@ export const getUsers = async (req: Request, res: Response) => {
     } catch (error) {
         res.status(500).json(
             {
-                susscess: false,
+                success: false,
                 message: "users can't be retrieved",
                 error: error
             }
