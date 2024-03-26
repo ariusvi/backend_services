@@ -108,6 +108,15 @@ export const updateUsersProfile = async (req: Request, res: Response) => {
                 }
             )
         }
+
+        if (lastName && typeof firstName !== 'string') {
+            return res.status(400).json(
+                {
+                    success: false,
+                    message: "Name must be a text"
+                }
+            )
+        }
         
 
         // update data in database
