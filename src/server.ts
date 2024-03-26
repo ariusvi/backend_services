@@ -19,7 +19,7 @@ const app: Application = express();
 app.use(express.json());
 app.use(cors());
 
-const PORT = process.env.PORT || 4001;
+const PORT = process.env.PORT || 4000;
 
 app.get("/healthy", (req: Request, res: Response) => {
     //to check if the API is active
