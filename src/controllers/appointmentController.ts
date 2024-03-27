@@ -160,10 +160,13 @@ export const getAppointments = async (req: Request, res: Response) => {
                 {
                     id: userId
                 }
-            }
+            },
+            relations: ["service"]
         }
+        
     );
-
+    console.log(appointment); // Muestra la información del servicio
+    
     res.status(200).json(
         {
             success: true,
