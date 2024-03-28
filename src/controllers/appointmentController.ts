@@ -34,11 +34,20 @@ export const createAppointment = async (req: Request, res: Response) => {
             
         }).save()
 
+        const newAppointmentDos = await Appointment.findOne(
+            {
+                where: {
+                    id: newAppointment.id
+                },
+                relations: ["service","user"]
+            }
+        )
+
         res.status(201).json(
             {
                 success: true,
                 message: "New appointment created",
-                data: newAppointment
+                data: newAppointmentDos
             }
         )
 
