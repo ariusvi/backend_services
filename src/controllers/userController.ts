@@ -162,4 +162,65 @@ export const updateUsersProfile = async (req: Request, res: Response) => {
             error: error
         })
     }
+};
+
+//delete user
+
+export const deleteUser = async (req: Request, res: Response) => {
+    try {
+        // retrieve data
+        const userId = req.body.id
+
+        // validate data
+        if (!userId) {
+            return res.status(400).json(
+                {
+                    success: false,
+                    message: "user id is needed"
+                }
+            )
+        }
+
+        // look for user
+        const user = await User.findOne(
+            {
+                where: {
+                    id: userId
+                }
+            }
+        )
+
+        if (!user) {
+            return res.status(400).json(
+                {
+                    success: false,
+                    message: "user doesn't exist"
+                }
+            )
+        }
+
+        // delete user
+        const userDeleted = await User.delete(
+            {
+                id: userId
+            }
+        )
+
+        // response
+        res.status(200).json(
+            {
+                success: true,
+                message: "user deleted",
+                data: userDeleted
+            }
+        )
+    } catch (error) {
+        res.status(500).json(
+            {
+                success: false,
+                message: "user can't be deleted",
+                error: error
+            }
+        )
+    }
 }
